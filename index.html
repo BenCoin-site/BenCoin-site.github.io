@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>BenCoin — BEN Token Guide: What It Is, How to Buy, Tokenomics &amp; Community (2026)</title>
+  <meta name="description" content="Complete BenCoin guide (2026): what BEN token is, the ben.eth community origin story, how to buy BEN, tokenomics and supply, trading on DEXs, risks of meme coins, how BenCoin compares to other community tokens, and a deep FAQ for holders and traders.">
+  <meta name="author" content="Crypto Finance Experts">
+  <link rel="canonical" href="https://bencoin-guide.example.com/">
+  <link rel="icon" type="image/png" href="ben.png">
+
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://bencoin-guide.example.com/">
+  <meta property="og:title" content="BenCoin — BEN Token Guide: Buy, Tokenomics &amp; Community (2026)">
+  <meta property="og:description" content="Practical BenCoin guide: what BEN token is, ben.eth origin, how to buy, tokenomics, DEX trading, risks of meme coins, and community overview.">
+  <meta property="og:image" content="cover.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="BenCoin — BEN Token Guide (2026)">
+  <meta name="twitter:description" content="What BenCoin is, how to buy BEN token, tokenomics, community, and meme coin risks for 2026.">
+
+  <style>
+    :root {
+      --g:    #00C805;
+      --g2:   #00A804;
+      --g3:   #008803;
+      --ga:   #4DFF52;
+      --gb:   #B3FFB5;
+
+      --ink:   #F0FFF0;
+      --sub:   #CCFFCD;
+      --muted: #94A3B8;
+      --dim:   #64748B;
+
+      --bg:    #040A04;
+      --card:  rgba(255,255,255,.028);
+      --line:  rgba(255,255,255,.07);
+      --lg:    rgba(0,200,5,.13);
+
+      --ok:   #4ADE80;
+      --warn: #FBBF24;
+      --err:  #F87171;
+
+      --r:  12px;
+      --rl: 18px;
+      --gap: 1.2rem;
+      --sh: 0 8px 28px rgba(0,0,0,.60);
+      --shg: 0 4px 24px rgba(0,200,5,.13);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0 }
+    html { scroll-behavior: smooth }
+    body {
+      font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      background-image:
+        radial-gradient(ellipse 900px 520px at 0%   0%,  rgba(0,168,4,.11), transparent 55%),
+        radial-gradient(ellipse 700px 400px at 100% 8%,  rgba(0,200,5,.06), transparent 50%),
+        radial-gradient(ellipse 600px 360px at 50%  98%, rgba(0,136,3,.07), transparent 55%);
+      color: var(--muted);
+      line-height: 1.72;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+
+    a { color: var(--ga); text-decoration: none }
+    a:hover { text-decoration: underline }
+    img { max-width: 100%; height: auto; display: block }
+    strong { color: #CCFFCD; font-weight: 600 }
+    .container { max-width: 1080px; margin: 0 auto; padding: 0 1.4rem }
+
+    h1,h2,h3,h4 { color: var(--ink); line-height: 1.25 }
+    h1 { font-size: clamp(2rem,5vw,3.1rem); font-weight: 800; letter-spacing: -.4px }
+    h2 { font-size: clamp(1.25rem,2.5vw,1.75rem); font-weight: 700; margin-top: 1.8rem; padding-top: .7rem; border-top: 1px solid var(--line) }
+    h3 { font-size: 1.08rem; font-weight: 700; color: var(--sub) }
+    p,li,td,th { font-size: 1rem; line-height: 1.75 }
+    .lead { font-size: 1.08rem; color: #A7F3AA }
+
+    /* HERO */
+    header.hero {
+      padding: clamp(2.5rem,6vw,5rem) 0 clamp(2rem,4vw,3.5rem);
+      border-bottom: 1px solid var(--line);
+    }
+    .hero-card {
+      background: rgba(0,168,4,.05);
+      border: 1px solid var(--lg);
+      border-radius: var(--rl);
+      padding: clamp(1.4rem,3.5vw,2.4rem);
+      box-shadow: var(--sh), var(--shg);
+      position: relative; overflow: hidden;
+    }
+    .hero-card::after {
+      content: '';
+      position: absolute; top: 0; left: 10%; right: 10%; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(0,200,5,.55), transparent);
+    }
+
+    .brand-row { display: flex; align-items: center; gap: .9rem; margin-bottom: 1rem }
+    .brand-logo {
+      width: 54px; height: 54px; border-radius: 13px;
+      border: 1px solid rgba(0,200,5,.26);
+      background: rgba(0,168,4,.10);
+      padding: .3rem; object-fit: contain;
+      box-shadow: 0 4px 14px rgba(0,200,5,.20);
+      flex: 0 0 auto;
+    }
+    .brand-label { color: var(--dim); font-size: .85rem; font-weight: 600; text-transform: uppercase; letter-spacing: .4px }
+    .brand-sub   { color: var(--muted); font-size: .85rem }
+
+    /* CTA */
+    .cta-center { display: flex; justify-content: center; margin-top: 2rem }
+    .cta {
+      display: inline-flex; align-items: center; gap: .7rem;
+      background: linear-gradient(135deg, #4DFF52 0%, #00C805 40%, #00A804 75%, #008803 100%);
+      color: #001A00;
+      padding: 1.2rem 3rem;
+      border-radius: 16px;
+      font-weight: 900; font-size: 1.15rem; letter-spacing: .15px;
+      box-shadow:
+        0 0 0 1px rgba(0,200,5,.24),
+        0 0 28px rgba(0,200,5,.30),
+        0 8px 22px rgba(0,168,4,.26),
+        0 20px 48px rgba(0,136,3,.20);
+      border: none; cursor: pointer; text-decoration: none;
+      transition: transform .18s, box-shadow .18s, filter .18s;
+    }
+    .cta:hover {
+      transform: translateY(-3px) scale(1.025); filter: brightness(1.07);
+      color: #001A00; text-decoration: none;
+      box-shadow:
+        0 0 0 1px rgba(0,200,5,.40),
+        0 0 40px rgba(0,200,5,.44),
+        0 10px 28px rgba(0,168,4,.36),
+        0 26px 58px rgba(0,136,3,.28);
+    }
+
+    /* NOTE */
+    .note {
+      border-left: 3px solid var(--g);
+      padding: .8rem 1rem;
+      background: rgba(0,168,4,.07);
+      border-radius: 0 9px 9px 0;
+      color: var(--sub); margin-top: 1rem;
+    }
+    .note.warn {
+      border-left-color: var(--warn);
+      background: rgba(251,191,36,.07);
+      color: #FEF3C7;
+    }
+
+    /* STEPS */
+    section.step-guide {
+      padding: clamp(2rem,5vw,3.5rem) 0;
+      border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+    }
+    .steps { display: grid; gap: var(--gap); grid-template-columns: 1fr }
+    .step {
+      background: var(--card); border: 1px solid var(--line);
+      border-top: 2px solid rgba(0,200,5,.28); border-radius: var(--r);
+      padding: 1.25rem; box-shadow: var(--sh); transition: transform .18s, box-shadow .18s;
+    }
+    .step:hover { transform: translateY(-3px); box-shadow: var(--sh), var(--shg) }
+    .step .icon {
+      width: 44px; height: 44px; border-radius: 9px;
+      display: inline-grid; place-items: center;
+      background: rgba(0,168,4,.11); margin-bottom: .65rem;
+      font-weight: 800; font-size: .95rem; color: var(--g);
+      border: 1px solid rgba(0,200,5,.22);
+    }
+
+    /* CARD */
+    main { padding-top: .5rem }
+    main .card {
+      background: var(--card); border: 1px solid var(--line);
+      border-radius: var(--r); padding: 1.5rem; margin: 1.2rem 0; box-shadow: var(--sh);
+    }
+    main .card > h2:first-child { margin-top: 0; border-top: none; padding-top: 0 }
+
+    /* TOC */
+    .toc { border: 1px solid var(--lg); background: rgba(0,168,4,.05); border-radius: var(--r); padding: 1.1rem 1.3rem }
+    .toc strong { color: var(--ink) }
+    .toc ul { margin: .5rem 0 0; padding-left: 1.1rem }
+    .toc li { margin: .28rem 0; font-size: .96rem }
+    .toc a { font-weight: 600 }
+
+    /* GRID */
+    .callout-grid { display: grid; gap: var(--gap); grid-template-columns: 1fr; margin-top: .8rem }
+    .mini { background: rgba(255,255,255,.02); border: 1px solid var(--line); border-radius: var(--r); padding: 1rem }
+    .mini h3 { margin-bottom: .35rem }
+    .kpi-badges { display: flex; flex-wrap: wrap; gap: .45rem; margin-top: .55rem }
+    .kpi-badges span {
+      border: 1px solid rgba(0,200,5,.20); background: rgba(0,168,4,.08);
+      color: var(--sub); padding: .26rem .54rem;
+      border-radius: 999px; font-size: .87rem; font-weight: 600;
+    }
+
+    /* TOKO BARS */
+    .toko-bar { display: flex; flex-direction: column; gap: .6rem; margin-top: 1rem }
+    .toko-row { display: flex; align-items: center; gap: .85rem }
+    .toko-label { min-width: 200px; font-size: .92rem; color: #CCFFCD; font-weight: 600 }
+    .toko-track { flex: 1; height: 8px; background: rgba(255,255,255,.07); border-radius: 999px; overflow: hidden }
+    .toko-fill  { height: 100%; border-radius: 999px; background: linear-gradient(90deg, var(--ga), var(--g)) }
+    .toko-val   { min-width: 60px; text-align: right; font-size: .9rem; font-weight: 700; color: var(--ga) }
+
+    /* TABLE */
+    .table-wrap { overflow-x: auto; border-radius: var(--r); border: 1px solid var(--line) }
+    table { width: 100%; border-collapse: collapse; min-width: 480px }
+    th,td { padding: .8rem .95rem; border-bottom: 1px solid var(--line); text-align: left }
+    th { background: rgba(0,168,4,.07); color: var(--ink); font-weight: 700; font-size: .93rem }
+    tr.hi { background: rgba(0,168,4,.04) }
+    tr:hover td { background: rgba(255,255,255,.018) }
+    tr:last-child td { border-bottom: none }
+    .ok { color: var(--ok) } .warn { color: var(--warn) } .err { color: var(--err) }
+
+    /* EEAT */
+    .eeat { background: var(--card); border: 1px solid var(--lg); border-radius: var(--r); padding: 1.5rem; box-shadow: var(--sh) }
+    .eeat > h2:first-child { margin-top: 0; border-top: none; padding-top: 0 }
+
+    /* FAQ */
+    .faq-item { border-bottom: 1px solid var(--line); padding: .9rem 0 }
+    .faq-item:last-child { border-bottom: none }
+    .faq-button { all: unset; display: flex; justify-content: space-between; align-items: flex-start; width: 100%; cursor: pointer; gap: 1rem }
+    .faq-button:focus-visible { outline: 2px solid var(--g); border-radius: 4px }
+    .faq-button h3 { margin: 0; font-weight: 700; font-size: 1rem; line-height: 1.4 }
+    .faq-content { max-height: 0; overflow: hidden; transition: max-height .26s ease }
+    .faq-content.open { padding-top: .65rem }
+    .faq-plus { font-weight: 800; font-size: 1.35rem; color: var(--g); flex: 0 0 auto; line-height: 1; transition: transform .2s }
+    .faq-button[aria-expanded="true"] .faq-plus { transform: rotate(45deg) }
+
+    @media(min-width:860px){
+      .steps { grid-template-columns: repeat(4,1fr) }
+      .callout-grid { grid-template-columns: 1fr 1fr }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero" role="banner">
+  <div class="container">
+    <div class="hero-card">
+      <div class="brand-row">
+        <img class="brand-logo" src="ben.png" alt="BenCoin logo">
+        <div>
+          <div class="brand-label">Complete Token Guide</div>
+          <div class="brand-sub">BEN Token · ben.eth Community · DEX Trading · Tokenomics · Meme Coin Risks</div>
+        </div>
+      </div>
+
+      <h1>BenCoin (BEN)</h1>
+      <p class="lead" style="margin-top:.7rem">
+        The complete guide to <strong>BenCoin (BEN)</strong> — a community-driven
+        meme token that emerged from the <strong>ben.eth</strong> NFT and crypto community.
+        Understand BenCoin's <strong>origin story</strong>, how the token launched
+        and gained momentum through <strong>organic community growth</strong>,
+        how to <strong>buy and trade BEN</strong> on decentralised exchanges,
+        the full <strong>tokenomics and supply structure</strong>,
+        what distinguishes BEN from other community tokens,
+        and the <strong>specific risks</strong> every meme coin holder
+        must understand before buying.
+      </p>
+
+      <div class="cta-center">
+        <a href="#" class="cta" aria-label="Trade BenCoin">
+          <span>🐸</span> Trade BenCoin
+        </a>
+      </div>
+
+      <div class="note warn">
+        <strong>Meme coin risk disclosure:</strong> BenCoin is a community meme token
+        with no guaranteed utility, no product roadmap, and extreme price volatility.
+        It can lose the majority of its value rapidly. Only invest what you can afford
+        to lose entirely. This guide is educational — not financial advice.
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- STEPS -->
+<section class="step-guide" aria-labelledby="how-works">
+  <div class="container">
+    <h2 id="how-works" style="margin-top:0;border-top:none;padding-top:0">
+      How to Participate in BenCoin: Get ETH → Find Contract → Swap → Hold or Trade
+    </h2>
+    <div class="steps" role="list">
+      <article class="step" role="listitem">
+        <div class="icon">01</div>
+        <h3>Get ETH in a self-custody wallet</h3>
+        <p>BEN trades on Ethereum-based DEXs. You need ETH in a non-custodial wallet like MetaMask or Rabby. Never buy meme coins from centralised exchanges that don't list them — only trust on-chain swaps via verified DEXs.</p>
+      </article>
+      <article class="step" role="listitem">
+        <div class="icon">02</div>
+        <h3>Verify the official contract address</h3>
+        <p>The single most important step with any meme coin. Before buying, verify BEN's exact contract address from the official ben.eth community channels or Etherscan — not from a tweet or DM. Fake tokens with similar names are common.</p>
+      </article>
+      <article class="step" role="listitem">
+        <div class="icon">03</div>
+        <h3>Swap ETH for BEN on a DEX</h3>
+        <p>Use Uniswap or another reputable DEX, paste the verified BEN contract address to locate the correct token, set appropriate slippage (1–5% for meme coins), and confirm the swap. Review gas cost before confirming — Ethereum gas can be significant relative to small trades.</p>
+      </article>
+      <article class="step" role="listitem">
+        <div class="icon">04</div>
+        <h3>Monitor community and manage risk</h3>
+        <p>Meme coin prices are driven by community sentiment, social media velocity, and influencer attention. Set personal sell targets before buying — most successful meme coin traders define both profit-take and stop-loss levels before entering a position.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- MAIN -->
+<main class="container" role="main">
+
+  <!-- TOC -->
+  <section class="card toc" aria-label="Table of Contents">
+    <strong>On this page — BenCoin (BEN):</strong>
+    <ul>
+      <li><a href="#origin">BenCoin origin: how ben.eth and the community created BEN</a></li>
+      <li><a href="#what-is">What BenCoin is and what makes it different from pure meme coins</a></li>
+      <li><a href="#tokenomics">BEN tokenomics: supply, distribution, and contract details</a></li>
+      <li><a href="#how-to-buy">How to buy BEN: step-by-step DEX trading guide</a></li>
+      <li><a href="#where-to-trade">Where to trade BEN: DEXs, aggregators, and CEX listings</a></li>
+      <li><a href="#price-drivers">What drives BEN price: community, catalysts, and social momentum</a></li>
+      <li><a href="#risks">BenCoin risks: the full meme coin risk profile</a></li>
+      <li><a href="#safety">Staying safe: verifying contracts and avoiding BEN scams</a></li>
+      <li><a href="#comparison">BenCoin vs PEPE vs DOGE vs other community tokens</a></li>
+      <li><a href="#best-practices">Best practices for BEN holders and traders</a></li>
+      <li><a href="#troubleshooting">Troubleshooting: token not showing, wrong token, failed swaps</a></li>
+      <li><a href="#eeat">Authoritative sources &amp; references</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+  </section>
+
+  <!-- ORIGIN -->
+  <section class="card" id="origin">
+    <h2>BenCoin Origin: How ben.eth and the Community Created BEN Token</h2>
+    <p>
+      <strong>BenCoin (BEN)</strong> emerged from the world of <strong>ben.eth</strong> —
+      a prominent figure in the Ethereum NFT and crypto Twitter/X community known for
+      collecting valuable ENS domains and being vocal about the cultural potential
+      of Web3 identity. The BEN token was created by the community around this figure,
+      riding the wave of meme coin momentum that followed high-profile launches like
+      PEPE in early 2023.
+    </p>
+    <p>
+      Like most community meme tokens, BEN was not launched through a traditional
+      token sale or VC-backed project. It emerged organically — a smart contract
+      deployed on Ethereum, liquidity added, and community momentum built through
+      social media, crypto Twitter/X virality, and the existing engaged audience
+      around the ben.eth identity and community.
+    </p>
+
+    <div class="callout-grid">
+      <div class="mini">
+        <h3>The ben.eth identity</h3>
+        <p style="color:var(--muted)">ben.eth is one of the most recognisable ENS names in Ethereum, associated with a community member who became known for significant NFT purchases, ENS domain collecting, and a large following in the crypto-native Web3 culture space. The BEN token leveraged this existing community recognition as its initial distribution narrative.</p>
+        <div class="kpi-badges"><span>ENS identity</span><span>NFT community</span><span>Web3 culture</span></div>
+      </div>
+      <div class="mini">
+        <h3>Community token dynamics</h3>
+        <p style="color:var(--muted)">BEN followed the playbook of successful community tokens: free market launch on a DEX with no pre-sale, liquidity locked or burned at launch, viral social media sharing, and rapid price discovery driven entirely by open market buying and selling. The token's value is entirely a function of community belief and market demand.</p>
+        <div class="kpi-badges"><span>Fair launch</span><span>DEX liquidity</span><span>Community-driven</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT IS -->
+  <section class="card" id="what-is">
+    <h2>What BenCoin Is and What Makes It Different from Generic Meme Coins</h2>
+    <p>
+      BenCoin is a <strong>community meme token</strong> — a cryptocurrency whose value
+      derives primarily from community belief, social momentum, and cultural resonance
+      rather than from underlying technology, utility, or cash flows.
+      This is not a criticism — DOGE and PEPE have demonstrated that community
+      and cultural value can sustain significant market capitalisation over time.
+    </p>
+    <p>
+      What distinguishes BEN from a pure zero-context meme token is its connection
+      to an existing, identifiable community and a named figure with real crypto-native
+      credibility. The ben.eth identity gives BEN a narrative anchor —
+      a "why this token" story that pure random meme launches lack.
+      Whether that narrative sustains long-term value remains, as with all meme tokens,
+      entirely a function of continued community engagement.
+    </p>
+
+    <div class="callout-grid">
+      <div class="mini">
+        <h3>What BEN has</h3>
+        <p style="color:var(--muted)">An identifiable community origin, a recognisable ENS-linked identity as its cultural anchor, an active holder community on social media, and early liquidity depth from initial community enthusiasm. These are the strongest possible foundations for a community token.</p>
+        <div class="kpi-badges"><span>Community origin</span><span>Identity anchor</span><span>Active holders</span></div>
+      </div>
+      <div class="mini">
+        <h3>What BEN does not have</h3>
+        <p style="color:var(--muted)">A product, a protocol, revenue, a development roadmap, institutional backing, or any guaranteed future utility. Like all community meme tokens, BEN's value is entirely market-determined and community-sustained — with no fundamental floor beyond market demand.</p>
+        <div class="kpi-badges"><span>No product</span><span>No revenue</span><span>No roadmap</span></div>
+      </div>
+    </div>
+
+    <div class="note warn">
+      <strong>Utility vs community tokens:</strong> BEN is a community token, not a utility token.
+      Utility tokens derive value from protocol usage (gas, staking, fees).
+      Community tokens derive value from shared belief and social momentum.
+      Both are legitimate asset classes — but they require different evaluation frameworks
+      and carry different risk profiles. Applying utility-token analysis to BEN
+      will lead to incorrect conclusions.
+    </div>
+  </section>
+
+  <!-- TOKENOMICS -->
+  <section class="card" id="tokenomics">
+    <h2>BEN Tokenomics: Supply, Distribution, and On-Chain Contract Details</h2>
+
+    <div class="callout-grid">
+      <div class="mini">
+        <h3>Supply structure</h3>
+        <p style="color:var(--muted)">BEN launched with a fixed total supply — a design choice that prevents ongoing inflation dilution and creates a capped, speculative asset. The fixed supply also means all tokens exist at launch; there are no future emission schedules or vesting releases to create sell pressure.</p>
+        <div class="kpi-badges"><span>Fixed supply</span><span>No inflation</span><span>No vesting emissions</span></div>
+      </div>
+      <div class="mini">
+        <h3>Liquidity and LP</h3>
+        <p style="color:var(--muted)">Initial liquidity was added to a Uniswap ETH/BEN pool at launch. The depth and lock status of this liquidity is the most important security metric for BEN holders — locked LP means the initial liquidity cannot be rugpulled; unlocked LP carries withdrawal risk. Verify current LP lock status on Etherscan.</p>
+        <div class="kpi-badges"><span>Uniswap V2/V3</span><span>ETH pair</span><span>Check LP lock</span></div>
+      </div>
+    </div>
+
+    <div class="toko-bar" role="list" aria-label="BEN token distribution (indicative)">
+      <div class="toko-row" role="listitem">
+        <span class="toko-label">Public — DEX liquidity</span>
+        <div class="toko-track"><div class="toko-fill" style="width:90%"></div></div>
+        <span class="toko-val">~90%</span>
+      </div>
+      <div class="toko-row" role="listitem">
+        <span class="toko-label">Community / ecosystem</span>
+        <div class="toko-track"><div class="toko-fill" style="width:10%"></div></div>
+        <span class="toko-val">~10%</span>
+      </div>
+    </div>
+    <p style="font-size:.88rem; color:var(--dim); margin-top:.6rem">Indicative distribution — verify exact on-chain allocation via the BEN contract on Etherscan.</p>
+
+    <div class="note">
+      <strong>Always verify tokenomics on-chain:</strong> The definitive source for BEN's
+      supply, holder distribution, and LP status is Etherscan — not social media posts
+      or unofficial websites. Search the verified BEN contract address on Etherscan
+      and check the Holders tab for concentration and the LP token holders for lock status.
+    </div>
+  </section>
+
+  <!-- HOW TO BUY -->
+  <section class="card" id="how-to-buy">
+    <h2>How to Buy BEN Token: Step-by-Step DEX Guide</h2>
+    <ol style="padding-left:1.3rem">
+      <li style="margin-bottom:.6rem"><strong>Set up a self-custody Ethereum wallet</strong> — MetaMask, Rabby, or any EVM-compatible wallet. Never buy meme coins on a platform that doesn't give you control of your private keys.</li>
+      <li style="margin-bottom:.6rem"><strong>Fund your wallet with ETH</strong> — buy ETH on a reputable centralised exchange (Coinbase, Kraken, Binance) and withdraw to your personal wallet address.</li>
+      <li style="margin-bottom:.6rem"><strong>Obtain the official BEN contract address</strong> — this is the most critical step. Get the contract address from the official ben.eth community accounts or the BEN token page on Etherscan. Do not use a contract address shared in a DM or unofficial source.</li>
+      <li style="margin-bottom:.6rem"><strong>Go to Uniswap</strong> — navigate to app.uniswap.org directly (bookmarked URL). Connect your wallet and select "Swap".</li>
+      <li style="margin-bottom:.6rem"><strong>Paste the BEN contract address</strong> into the token search field — do not search by name alone as multiple fake tokens can share the name "BEN". Confirm the token logo and contract address match the official one.</li>
+      <li style="margin-bottom:.6rem"><strong>Set slippage tolerance</strong> — meme coins require higher slippage than blue-chip tokens due to price volatility. 1–5% slippage is typical; very small or illiquid pools may require higher. Do not set slippage above 10% as it exposes you to excessive MEV sandwich attacks.</li>
+      <li style="margin-bottom:.6rem"><strong>Enter the ETH amount and review the output</strong> — check the BEN amount you'll receive, the price impact, and the gas cost before confirming.</li>
+      <li><strong>Confirm the swap</strong> — sign the transaction in your wallet. Once confirmed on-chain, BEN will appear in your wallet. You may need to add the BEN contract address to your wallet's token list manually if it doesn't appear automatically.</li>
+    </ol>
+
+    <div class="note warn">
+      <strong>Price impact warning:</strong> Meme coin pools are often shallow relative to
+      their market cap. A trade representing even 1–2% of the pool's total liquidity
+      can move the price significantly against you. Use a swap aggregator
+      (1inch, Paraswap) for larger purchases to find the best execution across all available liquidity.
+    </div>
+  </section>
+
+  <!-- WHERE TO TRADE -->
+  <section class="card" id="where-to-trade">
+    <h2>Where to Trade BEN: DEXs, Aggregators, and CEX Availability</h2>
+
+    <div class="table-wrap">
+      <table aria-label="Trading venues for BEN">
+        <thead>
+          <tr><th>Venue</th><th>Type</th><th>Notes</th></tr>
+        </thead>
+        <tbody>
+          <tr class="hi">
+            <td>Uniswap V2 / V3</td>
+            <td>Decentralised exchange</td>
+            <td>Primary trading venue — deepest BEN liquidity on-chain</td>
+          </tr>
+          <tr>
+            <td>1inch</td>
+            <td>DEX aggregator</td>
+            <td>Routes across all DEX sources — best execution for larger sizes</td>
+          </tr>
+          <tr class="hi">
+            <td>Paraswap</td>
+            <td>DEX aggregator</td>
+            <td>Alternative aggregator — compare output vs Uniswap direct before trading</td>
+          </tr>
+          <tr>
+            <td>CEX listings</td>
+            <td>Centralised exchange</td>
+            <td>Check current CEX listings — popular meme coins often receive exchange listings. Verify any CEX listing announcement from official sources only</td>
+          </tr>
+          <tr class="hi">
+            <td>DEXTools / GeckoTerminal</td>
+            <td>Analytics &amp; trading interface</td>
+            <td>View real-time charts, liquidity depth, and holder data — useful for monitoring before and after purchase</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note">
+      <strong>CEX listing as a price catalyst:</strong> For meme coins, listing on a major
+      centralised exchange (Binance, Coinbase, OKX) is often one of the most significant
+      price catalysts — it dramatically expands the accessible buyer pool. Monitor
+      official exchange listing announcements and the ben.eth community channels
+      for confirmed listing news. Be cautious of unverified rumours designed
+      to pump price before announcement.
+    </div>
+  </section>
+
+  <!-- PRICE DRIVERS -->
+  <section class="card" id="price-drivers">
+    <h2>What Drives BEN Price: Community, Catalysts, and Social Momentum</h2>
+    <p>
+      Unlike utility tokens where price reflects protocol revenue, adoption, or staking yield,
+      meme coin prices are driven by a different set of forces — all of which are
+      fundamentally social rather than fundamental.
+    </p>
+
+    <div class="table-wrap">
+      <table aria-label="BEN price drivers">
+        <thead>
+          <tr><th>Price driver</th><th>Positive signal</th><th>Negative signal</th></tr>
+        </thead>
+        <tbody>
+          <tr class="hi">
+            <td>Social media volume</td>
+            <td>Rising mentions, trending on X, meme virality expanding</td>
+            <td>Declining conversation, community moving to newer tokens</td>
+          </tr>
+          <tr>
+            <td>Holder count growth</td>
+            <td>Increasing unique wallet holders signals genuine distribution</td>
+            <td>Declining or stagnant holder count = loss of new buyer momentum</td>
+          </tr>
+          <tr class="hi">
+            <td>CEX listing news</td>
+            <td>Confirmed listing on tier-1 exchange massively expands buyer access</td>
+            <td>Rejected or delayed listing removes a major anticipated catalyst</td>
+          </tr>
+          <tr>
+            <td>ben.eth community activity</td>
+            <td>Active promotion, NFT community crossover, collaborations</td>
+            <td>Silence or distancing from the token by the namesake community</td>
+          </tr>
+          <tr class="hi">
+            <td>Broader meme coin market</td>
+            <td>General meme coin season pulls all community tokens higher</td>
+            <td>Meme coin market fatigue rotates capital to new launches</td>
+          </tr>
+          <tr>
+            <td>Whale concentration</td>
+            <td>Broad holder distribution without dominant whale concentration</td>
+            <td>Top 10 wallets holding 50%+ = dump risk from coordinated selling</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- RISKS -->
+  <section class="card" id="risks">
+    <h2>BenCoin Risks: The Full Meme Coin Risk Profile Every Holder Must Understand</h2>
+
+    <div class="note warn" style="margin-bottom:1.2rem">
+      <strong>Read this section before buying.</strong> Meme coin risks are qualitatively
+      different from DeFi protocol or Layer 1 risks. The primary risk is not a smart-contract exploit
+      — it is total loss of value through market dynamics, whale selling, or community abandonment.
+    </div>
+
+    <div class="table-wrap">
+      <table aria-label="BEN risk profile">
+        <thead>
+          <tr><th>Risk</th><th>Level</th><th>Description</th></tr>
+        </thead>
+        <tbody>
+          <tr class="hi">
+            <td>Total value loss</td>
+            <td class="err">Very High</td>
+            <td>Meme coins regularly lose 90–99% of peak value when community sentiment shifts. There is no fundamental floor.</td>
+          </tr>
+          <tr>
+            <td>Extreme volatility</td>
+            <td class="err">Very High</td>
+            <td>50–80% daily price swings are not uncommon for community tokens. Both directions. Have a plan before entering.</td>
+          </tr>
+          <tr class="hi">
+            <td>Whale sell pressure</td>
+            <td class="err">High</td>
+            <td>Early holders or large wallets selling creates rapid price decline. Check top holder concentration on Etherscan before buying.</td>
+          </tr>
+          <tr>
+            <td>LP removal risk</td>
+            <td class="err">High (if LP unlocked)</td>
+            <td>If liquidity pool tokens are not locked, developers can remove all liquidity instantly — leaving token worthless. Verify LP lock status.</td>
+          </tr>
+          <tr class="hi">
+            <td>Community abandonment</td>
+            <td class="warn">Medium-High</td>
+            <td>Meme coin communities rotate to new tokens quickly. When community attention leaves, volume collapses and price follows.</td>
+          </tr>
+          <tr>
+            <td>MEV / sandwich attacks</td>
+            <td class="warn">Medium</td>
+            <td>High slippage settings expose buyers to MEV bots that sandwich transactions — buy before you, sell after, extracting value. Keep slippage reasonable.</td>
+          </tr>
+          <tr class="hi">
+            <td>Copycat tokens</td>
+            <td class="warn">Medium</td>
+            <td>Multiple fake "BEN" tokens exist on Ethereum and other chains. Always verify the exact contract address before buying.</td>
+          </tr>
+          <tr>
+            <td>Tax on gains</td>
+            <td class="warn">Medium</td>
+            <td>Any profitable sale of BEN triggers capital gains tax in most jurisdictions. Track cost basis from day one.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- SAFETY -->
+  <section class="card" id="safety">
+    <h2>Staying Safe: Verifying the BEN Contract and Avoiding BenCoin Scams</h2>
+
+    <div class="table-wrap">
+      <table aria-label="Safety checklist for BEN buyers">
+        <thead>
+          <tr><th>Safety check</th><th>How to verify</th><th>Red flag</th></tr>
+        </thead>
+        <tbody>
+          <tr class="hi">
+            <td>Correct contract address</td>
+            <td>Get from official ben.eth community channels; cross-check on Etherscan</td>
+            <td>Contract shared only in DMs or unofficial groups</td>
+          </tr>
+          <tr>
+            <td>LP lock status</td>
+            <td>Search LP token holders on Etherscan — check if LP is held by a lock contract (Unicrypt, Team.Finance)</td>
+            <td>LP held in a deployer wallet with no lock = rugpull risk</td>
+          </tr>
+          <tr class="hi">
+            <td>Contract verification</td>
+            <td>Look for green checkmark on Etherscan — source code published</td>
+            <td>Unverified contract — cannot audit for hidden malicious functions</td>
+          </tr>
+          <tr>
+            <td>Top holder concentration</td>
+            <td>Token → Holders tab on Etherscan — top 10 wallet %</td>
+            <td>Single wallet holding 20%+ of supply = extreme dump risk</td>
+          </tr>
+          <tr class="hi">
+            <td>Token scanner check</td>
+            <td>Run contract through TokenSniffer or GoPlus Security</td>
+            <td>Honeypot flag, high buy/sell tax, or blacklist function detected</td>
+          </tr>
+          <tr>
+            <td>Transfer history</td>
+            <td>Check Transfers tab on Etherscan for buy/sell balance</td>
+            <td>Zero sell transactions = honeypot (contract blocks selling)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note warn">
+      <strong>The #1 meme coin scam vector: fake contract addresses.</strong>
+      Hundreds of scammers deploy fake "BEN" tokens on Ethereum and BSC,
+      often airdropping them to wallets to create fake holder counts.
+      The only real BEN is the one with the verified contract address
+      from official community channels. When in doubt, don't buy.
+    </div>
+  </section>
+
+  <!-- COMPARISON -->
+  <section class="card" id="comparison">
+    <h2>BenCoin vs PEPE vs DOGE vs Other Community Tokens</h2>
+
+    <div class="table-wrap">
+      <table aria-label="Community token comparison">
+        <thead>
+          <tr><th>Token</th><th>Origin</th><th>Chain</th><th>Community anchor</th><th>Liquidity depth</th></tr>
+        </thead>
+        <tbody>
+          <tr class="hi">
+            <td><strong>BEN</strong></td>
+            <td>ben.eth NFT / ENS community</td>
+            <td>Ethereum</td>
+            <td>Identifiable named figure + NFT community</td>
+            <td class="warn">Moderate</td>
+          </tr>
+          <tr>
+            <td>PEPE</td>
+            <td>Pepe the Frog internet meme</td>
+            <td>Ethereum</td>
+            <td>Universal internet meme culture</td>
+            <td class="ok">Deep — CEX listed</td>
+          </tr>
+          <tr class="hi">
+            <td>DOGE</td>
+            <td>Doge meme + Elon Musk association</td>
+            <td>Own PoW chain</td>
+            <td>Largest meme coin community + celebrity</td>
+            <td class="ok">Deepest — all major CEXs</td>
+          </tr>
+          <tr>
+            <td>SHIB</td>
+            <td>Dogecoin derivative meme</td>
+            <td>Ethereum</td>
+            <td>Large community + ShibaSwap ecosystem</td>
+            <td class="ok">Deep — all major CEXs</td>
+          </tr>
+          <tr class="hi">
+            <td>FLOKI</td>
+            <td>Elon Musk's dog name</td>
+            <td>ETH + BNB</td>
+            <td>Celebrity name + emerging utility layer</td>
+            <td class="warn">Moderate — some CEX listings</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note">
+      <strong>Where BEN sits in the hierarchy:</strong> BEN occupies the mid-tier of the
+      community token landscape — stronger identity anchor than pure random meme tokens,
+      but without the universal cultural recognition of PEPE or DOGE and without the
+      market depth that comes from major exchange listings.
+      For traders, this means higher potential upside (smaller market cap) and higher
+      risk (thinner liquidity, less institutional support).
+    </div>
+  </section>
+
+  <!-- BEST PRACTICES -->
+  <section class="card" id="best-practices">
+    <h2>Best Practices for BEN Holders and Traders</h2>
+    <ul style="padding-left:1.2rem">
+      <li style="margin-bottom:.5rem"><strong>Define your exit before entering</strong> — decide on both a profit-take target and a maximum loss threshold before buying. Meme coin euphoria makes in-position decision-making unreliable. Stick to your predetermined plan.</li>
+      <li style="margin-bottom:.5rem"><strong>Only invest what you can lose entirely</strong> — this is not a figure of speech for meme coins. The realistic worst case is zero. Size your position accordingly — most experienced meme coin traders allocate no more than 1–3% of their portfolio to any single community token.</li>
+      <li style="margin-bottom:.5rem"><strong>Verify the contract address every single time</strong> — bookmark the Etherscan page for the verified BEN contract address. Never copy a contract address from social media, DMs, or group chats without cross-referencing the official source.</li>
+      <li style="margin-bottom:.5rem"><strong>Check top holders before and after large moves</strong> — if a sudden price spike is accompanied by whale wallet activity on Etherscan, it may be a manufactured pump ahead of a large sell. Check holder movements during high-volatility periods.</li>
+      <li style="margin-bottom:.5rem"><strong>Use a separate wallet for meme coin trading</strong> — keep significant holdings in a hardware wallet; use a separate hot wallet with only the ETH you're willing to trade meme coins with. This limits blast radius if you accidentally approve a malicious contract.</li>
+      <li style="margin-bottom:.5rem"><strong>Track your cost basis from day one</strong> — meme coin trades generate taxable events. Use a crypto tax tool from the start; retroactive reconstruction is far harder.</li>
+      <li><strong>Revoke unused BEN contract approvals</strong> after trading sessions using Revoke.cash — DEX approvals accumulate and represent ongoing risk surface.</li>
+    </ul>
+  </section>
+
+  <!-- TROUBLESHOOTING -->
+  <section class="card" id="troubleshooting">
+    <h2>Troubleshooting BenCoin: Token Not Showing, Wrong Token, Failed Swaps</h2>
+
+    <h3>"BEN doesn't appear in my wallet after purchase"</h3>
+    <ul style="padding-left:1.2rem">
+      <li>BEN is an ERC-20 token that requires manual import in most wallets. Go to MetaMask → Import Tokens → paste the verified BEN contract address. The token will appear with your balance once imported.</li>
+      <li>Verify the purchase transaction on Etherscan first — confirm the swap succeeded and ERC-20 tokens were transferred to your address. If the transaction failed, no BEN was received (and your ETH minus gas remains in your wallet).</li>
+    </ul>
+
+    <h3>"I think I bought the wrong BEN token"</h3>
+    <ul style="padding-left:1.2rem">
+      <li>Check the contract address of the token in your wallet on Etherscan. Compare it character-by-character with the verified official BEN contract address. Even a single character difference means it's a different (likely worthless fake) token.</li>
+      <li>If you bought a fake token, the ETH is spent and unlikely to be recoverable. This is why verifying contract addresses before every purchase is non-negotiable.</li>
+    </ul>
+
+    <h3>"My BEN swap transaction failed"</h3>
+    <ul style="padding-left:1.2rem">
+      <li>Check the failure reason on Etherscan — common causes for meme coin swap failures: slippage too low (price moved beyond your tolerance during block confirmation), gas limit too low, or the token having a sell/buy tax that exceeds your slippage setting.</li>
+      <li>If the token has a transaction tax (e.g. 5% buy tax), your slippage must exceed that tax percentage plus normal price movement. Set slippage to at least the tax % + 1%.</li>
+    </ul>
+
+    <div class="note">
+      <strong>Etherscan is ground truth:</strong> For any BEN transaction question,
+      the Etherscan record of your wallet's ERC-20 transfers is definitive.
+      What your wallet UI displays may lag or show incorrectly —
+      the on-chain record does not.
+    </div>
+  </section>
+
+  <!-- EEAT -->
+  <section class="eeat" id="eeat" aria-labelledby="eeat-title">
+    <h2 id="eeat-title">BenCoin: Authoritative References &amp; External Sources</h2>
+
+    <h3>On-Chain Verification</h3>
+    <ul style="padding-left:1.2rem">
+      <li><a href="https://etherscan.io/" target="_blank" rel="noopener nofollow">Etherscan — Verify BEN Contract, Holders, and Transfers</a></li>
+      <li><a href="https://dextools.io/" target="_blank" rel="noopener nofollow">DEXTools — Real-Time BEN Chart and Pool Data</a></li>
+      <li><a href="https://www.geckoterminal.com/" target="_blank" rel="noopener nofollow">GeckoTerminal — BEN Liquidity Pool Analytics</a></li>
+    </ul>
+
+    <h3>Token Safety Tools</h3>
+    <ul style="padding-left:1.2rem">
+      <li><a href="https://tokensniffer.com/" target="_blank" rel="noopener nofollow">Token Sniffer — Automated Meme Token Scam Detector</a></li>
+      <li><a href="https://gopluslabs.io/" target="_blank" rel="noopener nofollow">GoPlus Security — Token Security Scanner</a></li>
+      <li><a href="https://revoke.cash/" target="_blank" rel="noopener nofollow">Revoke.cash — Token Approval Manager</a></li>
+    </ul>
+
+    <h3>Trading Venues</h3>
+    <ul style="padding-left:1.2rem">
+      <li><a href="https://app.uniswap.org/" target="_blank" rel="noopener nofollow">Uniswap — Primary BEN DEX</a></li>
+      <li><a href="https://app.1inch.io/" target="_blank" rel="noopener nofollow">1inch — DEX Aggregator for Best Execution</a></li>
+    </ul>
+
+    <h3>Tax</h3>
+    <ul style="padding-left:1.2rem">
+      <li><a href="https://koinly.io/" target="_blank" rel="noopener nofollow">Koinly — Crypto Tax Tracking</a></li>
+    </ul>
+
+    <div class="note" style="margin-top:1.2rem">
+      <strong>About:</strong> Prepared by Crypto Finance Experts as a practical, SEO-oriented knowledge base for
+      <em>BenCoin (BEN)</em>: community token origin, how to buy, tokenomics, price drivers, full risk profile, safety checks, and troubleshooting.
+      Not financial advice.
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="card" id="faq" aria-labelledby="faq-title">
+    <h2 id="faq-title" style="margin-top:0;border-top:none;padding-top:0">BenCoin: Frequently Asked Questions</h2>
+
+    <div class="faq-item">
+      <button class="faq-button" aria-expanded="false" aria-controls="f1" id="b1">
+        <h3>What is BenCoin and where did it come from?</h3><span class="faq-plus">+</span>
+      </button>
+      <div id="f1" class="faq-content" role="region" aria-labelledby="b1">
+        <p>BenCoin (BEN) is a community meme token on Ethereum that emerged from the ben.eth community — a group associated with a prominent crypto-native figure known for significant NFT collecting and a large following in Web3 culture. The token launched organically through a DEX listing and spread via social media and community enthusiasm rather than through a formal project launch, VC backing, or utility roadmap. Its value is entirely a function of community momentum and market demand.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-button" aria-expanded="false" aria-controls="f2" id="b2">
+        <h3>How do I buy BEN token safely?</h3><span class="faq-plus">+</span>
+      </button>
+      <div id="f2" class="faq-content" role="region" aria-labelledby="b2">
+        <p>Get ETH into a self-custody wallet (MetaMask, Rabby). Obtain the official BEN contract address from verified official community channels and cross-check it on Etherscan. Go to Uniswap directly (bookmarked URL), paste the contract address to locate BEN, set appropriate slippage (1–5%), review the swap output and gas cost, then confirm. After the transaction confirms, import the BEN contract address to your wallet's token list to see your balance. Never buy by searching "BEN" by name alone — multiple fake tokens share the name.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-button" aria-expanded="false" aria-controls="f3" id="b3">
+        <h3>Is BenCoin a scam?</h3><span class="faq-plus">+</span>
+      </button>
+      <div id="f3" class="faq-content" role="region" aria-labelledby="b3">
+        <p>BenCoin itself — the original token from the ben.eth community — is a genuine community meme token with verifiable on-chain activity, real liquidity, and an active holder base. It is not a fraudulent project in the sense of misrepresenting its purpose. However, like all meme coins, it carries extreme financial risk, has no guaranteed utility, and can lose most of its value rapidly. Separately, there are many fake "BEN" tokens deployed by scammers — these are scams. Always verify the contract address before buying.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-button" aria-expanded="false" aria-controls="f4" id="b4">
+        <h3>What makes BEN different from PEPE or DOGE?</h3><span class="faq-plus">+</span>
+      </button>
+      <div id="f4" class="faq-content" role="region" aria-labelledby="b4">
+        <p>DOGE and PEPE have achieved iconic internet meme status with universal cultural recognition — their communities exist largely independently of any individual. BEN's identity is tied to the ben.eth community and a specific crypto-native figure, giving it a more niche but arguably more focused community. DOGE and PEPE have significantly deeper liquidity, major CEX listings, and years of track record. BEN offers a smaller market cap with higher theoretical upside — and correspondingly higher risk — relative to the established mega-meme coins.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-button" aria-expanded="false" aria-controls="f5" id="b5">
+        <h3>What is the total supply of BEN?</h3><span class="faq-plus">+</span>
+      </button>
+      <div id="f5" class="faq-content" role="region" aria-labelledby="b5">
+        <p>BEN has a fixed total supply with the majority allocated to public DEX liquidity at launch. The exact supply figure is verifiable on Etherscan by looking up the BEN contract address and checking the token's overview page. For any investment decision, always verify current supply data on-chain rather than relying on secondary sources which may be outdated.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-button" aria-expanded="false" aria-controls="f6" id="b6">
+        <h3>Can I lose all my money investing in BenCoin?</h3><span class="faq-plus">+</span>
+      </button>
+      <div id="f6" class="faq-content" role="region" aria-labelledby="b6">
+        <p>Yes — completely and rapidly. This is not a theoretical risk. Meme coins routinely lose 90–99% of their peak value when community momentum shifts, when large holders sell, or when the broader meme coin cycle ends. There is no product, revenue, or utility to provide a fundamental floor. The only thing supporting BEN's price is continued buying demand — and that can evaporate quickly. Treat any investment in BEN as entirely speculative and limit exposure to what you would be comfortable losing completely.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-button" aria-expanded="false" aria-controls="f7" id="b7">
+        <h3>Does BenCoin have any utility beyond speculation?</h3><span class="faq-plus">+</span>
+      </button>
+      <div id="f7" class="faq-content" role="region" aria-labelledby="b7">
+        <p>At launch, BEN did not have a formally specified utility beyond community membership and participation in the cultural moment around the ben.eth community. Like most community tokens, any utility developed after launch (governance, access, staking) represents a community-driven expansion rather than a pre-planned protocol. For investment decisions, assume no guaranteed future utility and evaluate BEN purely as a community/speculative asset.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-button" aria-expanded="false" aria-controls="f8" id="b8">
+        <h3>Are BenCoin gains taxable?</h3><span class="faq-plus">+</span>
+      </button>
+      <div id="f8" class="faq-content" role="region" aria-labelledby="b8">
+        <p>Yes — in most jurisdictions (US, UK, EU), profits from selling cryptocurrency including meme coins are subject to capital gains tax. The taxable gain is the difference between your sale price and cost basis (price you paid). Each swap (e.g. ETH → BEN → ETH) is a separate taxable event. Losses can often be used to offset gains. Use a crypto tax tool like Koinly from day one to track every transaction, and consult a qualified tax professional for jurisdiction-specific guidance.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-button" aria-expanded="false" aria-controls="f9" id="b9">
+        <h3>How do I check if the BEN liquidity pool is locked?</h3><span class="faq-plus">+</span>
+      </button>
+      <div id="f9" class="faq-content" role="region" aria-labelledby="b9">
+        <p>On Etherscan: find the BEN/ETH Uniswap pair contract address, then check the LP token holders. If the LP tokens are held by a recognised lock contract (Unicrypt: 0x663A5C229c09b049E36dCs68..., Team.Finance, or similar time-lock contracts), the liquidity is locked. If the LP tokens are held by the deployer wallet or an EOA (externally owned account), they can be removed at any time — a significant rugpull risk. You can also check Unicrypt's interface directly by searching the pair address to see if there's a registered lock.</p>
+      </div>
+    </div>
+
+  </section>
+
+</main>
+
+<footer class="container" role="contentinfo" style="padding:2.5rem 0; border-top:1px solid var(--line); margin-top:2rem">
+  <p style="color:var(--dim); font-size:.93rem">© 2026 BenCoin Guide. Educational content only. Not financial advice. Meme coins carry extreme risk of total loss.</p>
+</footer>
+
+<script>
+  document.querySelectorAll('.faq-button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const isOpen = btn.getAttribute('aria-expanded') === 'true';
+      document.querySelectorAll('.faq-button').forEach(b => {
+        b.setAttribute('aria-expanded', 'false');
+        const c = document.getElementById(b.getAttribute('aria-controls'));
+        c.classList.remove('open'); c.style.maxHeight = '0';
+      });
+      if (!isOpen) {
+        btn.setAttribute('aria-expanded', 'true');
+        const content = document.getElementById(btn.getAttribute('aria-controls'));
+        content.classList.add('open');
+        content.style.maxHeight = content.scrollHeight + 'px';
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
